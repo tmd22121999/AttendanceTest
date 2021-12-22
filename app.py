@@ -25,7 +25,12 @@ def test_message(input):
     #print("OUTPUT " + image_data)
     emit('out-image-event', {'image_data': image_data}, namespace='/test')
 
-
+def processsss(input2):
+    img = np.array(input2)
+    cv2.putText(img, "job: " , (25 + 6, 40 - 6),
+        cv2.FONT_HERSHEY_SIMPLEX, 2.0, (255, 0,255), 1)
+    frame = Image.fromarray(img)
+    return frame.transpose(Image.FLIP_LEFT_RIGHT)
 @socketio.on('connect', namespace='/test')
 def test_connect():
     app.logger.info("client connected")
