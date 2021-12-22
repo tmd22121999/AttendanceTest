@@ -1,4 +1,4 @@
-from PIL import Image
+from PIL import Image , ImageDraw
 import cv2
 import face_recognition
 import numpy as np
