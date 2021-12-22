@@ -33,6 +33,7 @@ def processsss(input2):
     cv2.putText(img2, "job: " , (25 + 6, 40 - 6),
         cv2.FONT_HERSHEY_SIMPLEX, 2.0, (255, 0,255), 1)
     frame = Image.fromarray(img2)
+    frame = pil_image_to_base64(frame)
     return frame.transpose(Image.FLIP_LEFT_RIGHT)
 
 @socketio.on('connect', namespace='/test')
