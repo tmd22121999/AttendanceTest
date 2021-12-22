@@ -6,28 +6,29 @@ import os
 import re
 
 ############## Encoding known face
-known_face_encodings = []
-known_face_names = []
-
-print("Encoding face...")
-FACE_IMG_DIR = os.path.join(os.getcwd(), 'face_img')
-for filename in os.listdir(FACE_IMG_DIR):
-    face = face_recognition.load_image_file(
-        os.path.join(FACE_IMG_DIR, filename))
-    face_encoding = face_recognition.face_encodings(face)[0]
-    known_face_encodings.append(face_encoding)
-    known_face_names.append(re.sub('.jpg$', '', filename))
-print("Encoding face done")
-print(known_face_names)
-
-# Prepare attendece set which contains the names of those who attended
-attendence_set = set()
 
 class Makeup_artist(object):
     def __init__(self):
         pass
 
     def apply_makeup(self, img):
+        known_face_encodings = []
+        known_face_names = []
+
+        print("Encoding face...")
+        FACE_IMG_DIR = os.path.join(os.getcwd(), 'face_img')
+        for filename in os.listdir(FACE_IMG_DIR):
+            face = face_recognition.load_image_file(
+                os.path.join(FACE_IMG_DIR, filename))
+            face_encoding = face_recognition.face_encodings(face)[0]
+            known_face_encodings.append(face_encoding)
+            known_face_names.append(re.sub('.jpg$', '', filename))
+        print("Encoding face done")
+        print(known_face_names)
+
+        # Prepare attendece set which contains the names of those who attended
+        attendence_set = set()
+
         face_locations = []
         face_encodings = []
         face_names = []
