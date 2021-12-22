@@ -1,4 +1,4 @@
-from PIL import Image , ImageDraw
+from PIL import Image 
 import cv2
 import face_recognition
 import numpy as np
@@ -94,6 +94,4 @@ class Makeup_artist(object):
         # Display the resulting image
         ret, buffer = cv2.imencode('.jpg', frame)
         frame = Image.fromarray(frame)
-        draw = ImageDraw.Draw(frame)
-        draw.text((50, 80),  "aaaaaaaa", font = cv2.FONT_HERSHEY_SIMPLEX, fill = (0,255,0,0))
-        return frame.transpose(draw.FLIP_LEFT_RIGHT)
+        return frame.transpose(Image.FLIP_LEFT_RIGHT)
