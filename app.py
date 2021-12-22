@@ -26,7 +26,7 @@ def test_message(input):
     image_data = processsss(input) # Do your magical Image processing here!!
     image_data = pil_image_to_base64(image_data)
     image_data = binascii.a2b_base64(image_data)
-    #image_data = image_data.decode("utf-8")
+    image_data = image_data.decode("utf-8")
     image_data = "data:image/jpeg;base64," + image_data
     #print("OUTPUT " + image_data)
     emit('out-image-event', {'image_data': image_data}, namespace='/test')
