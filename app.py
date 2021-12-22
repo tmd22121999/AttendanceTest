@@ -72,6 +72,7 @@ def recog(img):
             face_locations = face_recognition.face_locations(rgb_small_frame)
             face_encodings = face_recognition.face_encodings(
                 rgb_small_frame, face_locations)
+            print(face_locations)
             face_names = []
             for face_encoding in face_encodings:
                 # See if the face is a match for the known face(s)
@@ -92,7 +93,6 @@ def recog(img):
                     name = known_face_names[best_match_index]
 
                 face_names.append(name)
-                print(face_names)
 
         process_this_frame = not process_this_frame
         # process_this_frame = False
