@@ -92,6 +92,6 @@ class Makeup_artist(object):
         cv2.putText(frame, "wnnvownoveusjwovnwweqweqwe", (25 + 6, 25 - 6),
                         25, 1.0, (255, 255, 255), 1)
         # Display the resulting image
-        ret, buffer = cv2.imencode('.jpg', frame)
-        frame = Image.fromarray(frame)
-        return frame
+        #ret, buffer = cv2.imencode('.jpg', frame)
+        buffer = Image.fromarray(frame)
+        return buffer
