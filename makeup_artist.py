@@ -93,5 +93,5 @@ class Makeup_artist(object):
 
         # Display the resulting image
         ret, buffer = cv2.imencode('.jpg', frame)
-        frame = buffer.tobytes()
-        return buffer
+        frame = Image.fromarray(frame)
+        return frame
