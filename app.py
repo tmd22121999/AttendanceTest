@@ -24,7 +24,7 @@ def test_message(input):
     image_data = "data:image/jpeg;base64," + image_data
     #print("OUTPUT " + image_data)
     emit('out-image-event', {'image_data': image_data}, namespace='/test')
-    #camera.enqueue_input(base64_to_pil_image(input))
+    camera.enqueue_input(base64_to_pil_image(input))
 
 
 @socketio.on('connect', namespace='/test')
