@@ -12,6 +12,9 @@ import binascii
 import base64
 import face_recognition
 from io import BytesIO
+import os
+import re
+
 
 app = Flask(__name__)
 app.logger.addHandler(logging.StreamHandler(stdout))
