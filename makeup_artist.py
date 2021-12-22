@@ -94,4 +94,4 @@ class Makeup_artist(object):
         # Display the resulting image
         ret, buffer = cv2.imencode('.jpg', frame)
         buffer = Image.fromarray(buffer)
-        return buffer
+        return buffer.transpose(Image.FLIP_LEFT_RIGHT)
