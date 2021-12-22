@@ -28,8 +28,7 @@ class Makeup_artist(object):
         pass
 
     def apply_makeup(self, img):
-        frame =  np.array(img)
-
+        frame =  np.array(img.convert('RGB') )
         face_locations = []
         face_encodings = []
         face_names = []
