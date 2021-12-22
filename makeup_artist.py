@@ -12,7 +12,7 @@ class Makeup_artist(object):
         pass
 
     def apply_makeup(self, img):
-        frame = img
+        frame =  np.array(img)
         known_face_encodings = []
         known_face_names = []
 
