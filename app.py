@@ -9,6 +9,9 @@ import numpy as np
 import cv2
 from PIL import Image 
 import binascii
+import base64
+
+from io import BytesIO
 
 app = Flask(__name__)
 app.logger.addHandler(logging.StreamHandler(stdout))
@@ -24,7 +27,9 @@ def test_message(input):
     camera.enqueue_input(input)
     image_data = input
     image_data = processsss(input) # Do your magical Image processing here!!
-    image_data = pil_image_to_base64(image_data)
+    buf = BytesIO()
+    image_data.save(buf, format="JPEG")
+    image_data = base64.b64encode(buf.getvalue())
     image_data = image_data.decode("utf-8")
     image_data = "data:image/jpeg;base64," + image_data
     #print("OUTPUT " + image_data)
