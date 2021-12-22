@@ -93,5 +93,5 @@ class Makeup_artist(object):
                         cv2.FONT_HERSHEY_SIMPLEX, 1.0, (255, 255, 255), 1)
         # Display the resulting image
         ret, buffer = cv2.imencode('.jpg', frame)
-        buffer = Image.fromarray(buffer)
-        return buffer.transpose(Image.FLIP_LEFT_RIGHT)
+        frame = Image.fromarray(frame)
+        return buffer.transpose(frame.FLIP_LEFT_RIGHT)
