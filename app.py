@@ -27,10 +27,11 @@ def test_message(input):
     emit('out-image-event', {'image_data': image_data}, namespace='/test')
 
 def processsss(input2):
-    img = np.array(input2)
-    cv2.putText(img, "job: " , (25 + 6, 40 - 6),
+    img2 = base64_to_pil_image(input2)
+    img2 = np.array(img2)
+    cv2.putText(img2, "job: " , (25 + 6, 40 - 6),
         cv2.FONT_HERSHEY_SIMPLEX, 2.0, (255, 0,255), 1)
-    frame = Image.fromarray(img)
+    frame = Image.fromarray(img2)
     return frame.transpose(Image.FLIP_LEFT_RIGHT)
 
 @socketio.on('connect', namespace='/test')
