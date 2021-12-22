@@ -12,6 +12,7 @@ class Makeup_artist(object):
         pass
 
     def apply_makeup(self, img):
+        frame = img
         known_face_encodings = []
         known_face_names = []
 
@@ -34,7 +35,6 @@ class Makeup_artist(object):
         face_names = []
         process_this_frame = True
         small_frame = cv2.resize(frame, (0, 0), fx=0.25, fy=0.25)
-        frame = img
         # Convert the image from BGR color (which OpenCV uses) to RGB color (which face_recognition uses)
         rgb_small_frame = small_frame[:, :, ::-1]
 
