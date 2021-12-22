@@ -37,7 +37,7 @@ def processsss(input2):
     frame = frame.transpose(Image.FLIP_LEFT_RIGHT)
     frame = pil_image_to_base64(frame)
     
-    return binascii.a2b_base64(frame)
+    return frame
 
 @socketio.on('connect', namespace='/test')
 def test_connect():
