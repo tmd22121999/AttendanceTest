@@ -56,6 +56,7 @@ def test_message(input):
     
     
 def recog(img):
+        img2 = base64_to_pil_image(img)
         frame =  np.array(img.convert('RGB') )
         face_locations = []
         face_encodings = []
