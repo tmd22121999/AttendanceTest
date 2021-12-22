@@ -24,7 +24,6 @@ def test_message(input):
     image_data = "data:image/jpeg;base64," + image_data
     #print("OUTPUT " + image_data)
     emit('out-image-event', {'image_data': image_data}, namespace='/test')
-    camera.enqueue_input(input)
 
 
 @socketio.on('connect', namespace='/test')
