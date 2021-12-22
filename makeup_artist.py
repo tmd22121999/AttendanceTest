@@ -63,6 +63,7 @@ class Makeup_artist(object):
                     name = known_face_names[best_match_index]
 
                 face_names.append(name)
+                print(face_names)
 
         process_this_frame = not process_this_frame
         # process_this_frame = False
@@ -71,7 +72,6 @@ class Makeup_artist(object):
         for name in face_names:
             attendence_set.add(name)
 
-        print(face_names)
         # Display the results
         for (top, right, bottom, left), name in zip(face_locations, face_names):
             # Scale back up face locations since the frame we detected in was scaled to 1/4 size
@@ -89,7 +89,8 @@ class Makeup_artist(object):
             font = cv2.FONT_HERSHEY_DUPLEX
             cv2.putText(frame, name, (left + 6, bottom - 6),
                         font, 1.0, (255, 255, 255), 1)
-
+        cv2.putText(frame, "wnnvownoveusjwovnwweqweqwe", (25 + 6, 25 - 6),
+                        25, 1.0, (255, 255, 255), 1)
         # Display the resulting image
         ret, buffer = cv2.imencode('.jpg', frame)
         frame = Image.fromarray(frame)
