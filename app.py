@@ -5,7 +5,8 @@ from flask import Flask, render_template, Response
 from flask_socketio import SocketIO, emit
 from camera import Camera
 from utils import base64_to_pil_image, pil_image_to_base64
-
+import numpy as np
+import cv2
 
 app = Flask(__name__)
 app.logger.addHandler(logging.StreamHandler(stdout))
