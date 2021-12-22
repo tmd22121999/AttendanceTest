@@ -22,9 +22,10 @@ camera = Camera(Makeup_artist())
 def test_message(input):
     input = input.split(",")[1]
     camera.enqueue_input(input)
+    image_data = input
     image_data = processsss(input) # Do your magical Image processing here!!
     image_data = pil_image_to_base64(image_data)
-    
+    image_data = binascii.a2b_base64(image_data)
     #image_data = image_data.decode("utf-8")
     image_data = "data:image/jpeg;base64," + image_data
     #print("OUTPUT " + image_data)
