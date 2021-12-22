@@ -94,4 +94,6 @@ class Makeup_artist(object):
         # Display the resulting image
         ret, buffer = cv2.imencode('.jpg', frame)
         frame = Image.fromarray(frame)
-        return frame.transpose(Image.FLIP_LEFT_RIGHT)
+        draw = ImageDraw.Draw(frame)
+        draw.text((50, 80),  "aaaaaaaa", font = cv2.FONT_HERSHEY_SIMPLEX, fill = (b, g, r, a))
+        return frame.transpose(draw.FLIP_LEFT_RIGHT)
