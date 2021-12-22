@@ -24,6 +24,9 @@ socketio = SocketIO(app)
 camera = Camera(Makeup_artist())
 known_face_encodings = []
 known_face_names = []
+face_locations = []
+face_encodings = []
+face_names = []
 
 print("Encoding face...")
 FACE_IMG_DIR = os.path.join(os.getcwd(), 'face_img')
@@ -38,6 +41,7 @@ print(known_face_names)
 
 # Prepare attendece set which contains the names of those who attended
 attendence_set = set()
+process_this_frame = True
 
 @socketio.on('input image', namespace='/test')
 def test_message(input):
@@ -58,10 +62,8 @@ def test_message(input):
 def recog(img):
         img = base64_to_pil_image(img)
         frame =  np.array(img.convert('RGB') )
-        face_locations = []
-        face_encodings = []
-        face_names = []
-        process_this_frame = True
+
+
         small_frame = cv2.resize(frame, (0, 0), fx=0.25, fy=0.25)
         # Convert the image from BGR color (which OpenCV uses) to RGB color (which face_recognition uses)
         rgb_small_frame = small_frame[:, :, ::-1]
