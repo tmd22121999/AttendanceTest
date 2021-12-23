@@ -46,7 +46,7 @@ attendence_set = set()
 @socketio.on('input image', namespace='/test')
 def test_message(input):
     try:
-        if(input.split(",")[0] != "data:image/jpeg;base64"):
+        if(input.split(",")[0] == "data:image/jpeg;base64"):
             image_data = input.split(",")[1]
         else:
             image_data += input
@@ -64,7 +64,7 @@ def test_message(input):
             #print("OUTPUT " + image_data)
             emit('out-image-event', {'image_data': image_data}, namespace='/test')
     except NameError:
-        test_message(input)
+        pass
     
     
 def recog(img):
