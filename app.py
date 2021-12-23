@@ -45,7 +45,7 @@ attendence_set = set()
 
 @socketio.on('input image', namespace='/test')
 def test_message(input):
-    try
+    try:
         if(input.split(",")[0] != "data:image/jpeg;base64"):
             image_data = input.split(",")[1]
         else:
