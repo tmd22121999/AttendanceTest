@@ -44,26 +44,27 @@ attendence_set = set()
 
 
 @socketio.on('input image', namespace='/test')
-image_data =""
 def test_message(input):
-    if(input.split(",")[0] != "data:image/jpeg;base64"):
-        image_data = input.split(",")[1]
-    else:
-        image_data += input
-        #input = input.split(",")[1]
-        print(image_data)
+    try
+        if(input.split(",")[0] != "data:image/jpeg;base64"):
+            image_data = input.split(",")[1]
+        else:
+            image_data += input
+            #input = input.split(",")[1]
+            print(image_data)
 
-        #camera.enqueue_input(input)
-        #image_data = input
-        image_data = recog(input) # Do your magical Image processing here!!
-        buf = BytesIO()
-        image_data.save(buf, format="JPEG")
-        image_data = base64.b64encode(buf.getvalue())
-        image_data = image_data.decode("utf-8")
-        image_data = "data:image/jpeg;base64," + image_data
-        #print("OUTPUT " + image_data)
-        emit('out-image-event', {'image_data': image_data}, namespace='/test')
-
+            #camera.enqueue_input(input)
+            #image_data = input
+            image_data = recog(input) # Do your magical Image processing here!!
+            buf = BytesIO()
+            image_data.save(buf, format="JPEG")
+            image_data = base64.b64encode(buf.getvalue())
+            image_data = image_data.decode("utf-8")
+            image_data = "data:image/jpeg;base64," + image_data
+            #print("OUTPUT " + image_data)
+            emit('out-image-event', {'image_data': image_data}, namespace='/test')
+    except NameError:
+        pass 
     
     
 def recog(img):
