@@ -27,7 +27,7 @@ known_face_names = []
 face_locations = []
 face_encodings = []
 face_names = []
-
+image_data =""
 print("Encoding face...")
 FACE_IMG_DIR = os.path.join(os.getcwd(), 'face_img')
 for filename in os.listdir(FACE_IMG_DIR):
@@ -46,9 +46,15 @@ attendence_set = set()
 @socketio.on('input image', namespace='/test')
 def test_message(input):
     print(input)
-    input = input.split(",")[1]
+    if(input.split(",")[0] != "data:image/jpeg;base64"):
+        image_data += input
+    else:
+        image_data = input.split(",")[1]
+        return 
+    #input = input.split(",")[1]
+
     #camera.enqueue_input(input)
-    image_data = input
+    #image_data = input
     image_data = recog(input) # Do your magical Image processing here!!
     buf = BytesIO()
     image_data.save(buf, format="JPEG")
