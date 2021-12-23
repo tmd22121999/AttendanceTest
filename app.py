@@ -64,7 +64,7 @@ def test_message(input):
             #print("OUTPUT " + image_data)
             emit('out-image-event', {'image_data': image_data}, namespace='/test')
     except NameError:
-        pass 
+        test_message(input)
     
     
 def recog(img):
