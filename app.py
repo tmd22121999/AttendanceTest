@@ -45,13 +45,13 @@ attendence_set = set()
 
 @socketio.on('input image', namespace='/test')
 def test_message(input):
-    print(input)
     if(input.split(",")[0] != "data:image/jpeg;base64"):
         image_data += input
     else:
         image_data = input.split(",")[1]
         return 
     #input = input.split(",")[1]
+    print(image_data)
 
     #camera.enqueue_input(input)
     #image_data = input
