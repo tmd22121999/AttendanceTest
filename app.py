@@ -147,6 +147,11 @@ def index():
     """Video streaming home page."""
     return render_template('index.html', known_face_names=known_face_names)
 
+@app.route('/listen')
+def listen():
+    global count
+    return {"attendence_list": list(attendence_set)}
+
 
 def gen():
     """Video streaming generator function."""
