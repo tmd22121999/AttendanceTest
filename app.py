@@ -27,7 +27,6 @@ known_face_names = []
 face_locations = []
 face_encodings = []
 face_names = []
-image_data =""
 print("Encoding face...")
 FACE_IMG_DIR = os.path.join(os.getcwd(), 'face_img')
 for filename in os.listdir(FACE_IMG_DIR):
@@ -47,10 +46,10 @@ attendence_set = set()
 def test_message(input):
     #image_data = input.split(",")[1]
     input = input.split(",")[1]
-    print(image_data)
 
     camera.enqueue_input(input)
     #image_data = input
+    image_data =""
     image_data = recog(input) # Do your magical Image processing here!!
     buf = BytesIO()
     image_data.save(buf, format="JPEG")
