@@ -107,10 +107,10 @@
           </div>
           <!-- Video -->
           <div>
-          <video style="content-visibility: hidden;" autoplay="true" id="videoElement"></video>
-                <canvas id="canvasElement"></canvas>
-                <img src="{{ url_for('video_feed') }}" width="666px" height="588px" alt="Video streaming" />
-                <img id="photo">
+          <video style="display: none;" autoplay="true" id="videoElement"></video>
+                <canvas  style="display: none;"  id="canvasElement"></canvas>
+                <img  style="display: none;"  src="{{ url_for('video_feed') }}" width="666px" height="588px" alt="Video streaming" />
+                <img width="666px" height="588px" id="photo">
             </div>
         </div>
       </div>
