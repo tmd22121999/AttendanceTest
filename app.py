@@ -146,7 +146,7 @@ def test_connect():
 @app.route('/')
 def index():
     """Video streaming home page."""
-    return render_template('index.html')
+    return render_template('index.html', known_face_names=known_face_names)
 
 
 def gen():
