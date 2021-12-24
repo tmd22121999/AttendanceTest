@@ -45,11 +45,11 @@ attendence_set = set()
 
 @socketio.on('input image', namespace='/test')
 def test_message(input):
-    image_data = input.split(",")[1]
-    #input = input.split(",")[1]
+    #image_data = input.split(",")[1]
+    input = input.split(",")[1]
     print(image_data)
 
-    #camera.enqueue_input(input)
+    camera.enqueue_input(input)
     #image_data = input
     image_data = recog(input) # Do your magical Image processing here!!
     buf = BytesIO()
