@@ -47,7 +47,7 @@ def test_message(input):
     #image_data = input.split(",")[1]
     input = input.split(",")[1]
 
-    camera.enqueue_input(input)
+    #camera.enqueue_input(input)
     #image_data = input
     image_data =""
     image_data = recog(input) # Do your magical Image processing here!!
@@ -163,7 +163,7 @@ def gen():
                b'Content-Type: image/jpeg\r\n\r\n' + frame + b'\r\n')
 
 
-@app.route('/video_feed')
+@app.route('/video_fee')
 def video_feed():
     """Video streaming route. Put this in the src attribute of an img tag."""
     return Response(gen(), mimetype='multipart/x-mixed-replace; boundary=frame')
